@@ -11,8 +11,8 @@ public class WalletResult {
 	private String recovery_secret;
 	private List<String> backup_public_key;
 	private String checksum;
-	private List<String> blocktrail_public_keys;
-	private List<String> primary_public_keys;
+	private List<List<String>> blocktrail_public_keys;
+	private List<List<String>> primary_public_keys;
 	private String key_index;
 	private String upgrade_key_index;
 
@@ -72,19 +72,19 @@ public class WalletResult {
 		this.checksum = checksum;
 	}
 
-	public List<String> getBlocktrail_public_keys() {
+	public List<List<String>> getBlocktrail_public_keys() {
 		return blocktrail_public_keys;
 	}
 
-	public void setBlocktrail_public_keys(List<String> blocktrail_public_keys) {
+	public void setBlocktrail_public_keys(List<List<String>> blocktrail_public_keys) {
 		this.blocktrail_public_keys = blocktrail_public_keys;
 	}
 
-	public List<String> getPrimary_public_keys() {
+	public List<List<String>> getPrimary_public_keys() {
 		return primary_public_keys;
 	}
 
-	public void setPrimary_public_keys(List<String> primary_public_keys) {
+	public void setPrimary_public_keys(List<List<String>> primary_public_keys) {
 		this.primary_public_keys = primary_public_keys;
 	}
 

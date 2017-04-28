@@ -7,11 +7,15 @@ import java.io.Reader;
 import java.net.URL;
 import java.net.URLConnection;
 
+import org.apache.log4j.Logger;
+
 import com.google.gson.Gson;
 import com.nixarsoft.blocktrail.model.AddressDetails;
 import com.nixarsoft.blocktrail.model.result.WalletResult;
 
 public class BlocktrailClient {
+	private static final Logger logger = Logger.getLogger(BlocktrailClient.class);
+
 	public static final String ENDPOINT = "https://api.blocktrail.com/v1/btc/";
 	public static final String USER_AGENT = "Java Sdk - https://github.com/nixarsoft/blocktrail-java-sdk";
 
@@ -68,7 +72,6 @@ public class BlocktrailClient {
 
 			InputStream is = connection.getInputStream();
 			Reader reader = new BufferedReader(new InputStreamReader(is));
-
 			WalletResult walletResult = new Gson().fromJson(reader, WalletResult.class);
 
 			wallet.setName(identifier);
