@@ -2,7 +2,7 @@ package com.nixarsoft.blocktrail.model;
 
 import java.util.Date;
 
-public class AddressDetail {
+public class AddressDetails {
 
 	private String address;
 	private String hash160;
