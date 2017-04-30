@@ -10,13 +10,13 @@ import java.net.URLConnection;
 import org.apache.log4j.Logger;
 
 import com.google.gson.Gson;
-import com.nixarsoft.blocktrail.model.AddressDetails;
-import com.nixarsoft.blocktrail.model.result.WalletResult;
+import com.nixarsoft.blocktrail.model.result.address.AddressDetails;
+import com.nixarsoft.blocktrail.model.result.wallet.WalletResult;
 
 public class BlocktrailClient {
 	private static final Logger logger = Logger.getLogger(BlocktrailClient.class);
 
-	public static final String ENDPOINT = "https://api.blocktrail.com/v1/btc/";
+	private static final String ENDPOINT = "https://api.blocktrail.com/v1/";
 	public static final String USER_AGENT = "Java Sdk - https://github.com/nixarsoft/blocktrail-java-sdk";
 
 	private URLConnection connection = null;
@@ -24,7 +24,7 @@ public class BlocktrailClient {
 	private String apiKey;
 	private String apiSecret;
 	private String coinType;
-	private boolean isTestNet;
+	private static boolean isTestNet;
 
 	public BlocktrailClient(String apiKey, String apiSecret, String coinType, boolean isTestNet) {
 		this.apiKey = apiKey;
@@ -33,8 +33,14 @@ public class BlocktrailClient {
 		this.isTestNet = isTestNet;
 	}
 
+	public static String getEndpoint() {
+		if (isTestNet)
+			return ENDPOINT + "tBTC/";
+		return ENDPOINT + "BTC/";
+	}
+
 	public AddressDetails getAddressDetail(String address) {
-		String targetURL = ENDPOINT + "address/" + address + "?api_key=" + this.apiKey;
+		String targetURL = getEndpoint() + "address/" + address + "?api_key=" + this.apiKey;
 
 		try {
 			URL url = new URL(targetURL);
@@ -58,7 +64,7 @@ public class BlocktrailClient {
 
 	public Wallet getWallet(String identifier) {
 		// https://api.blocktrail.com/v1/BTC/wallet/TestWallet?api_key=5fd6d36dd68759382c2b78e98c9dfd65f59af73f
-		String targetURL = ENDPOINT + "wallet/" + identifier + "?api_key=" + this.apiKey;
+		String targetURL = getEndpoint() + "wallet/" + identifier + "?api_key=" + this.apiKey;
 
 		try {
 			Wallet wallet = new Wallet(this);

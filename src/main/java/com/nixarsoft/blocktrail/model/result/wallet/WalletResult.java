@@ -1,9 +1,8 @@
-package com.nixarsoft.blocktrail.model.result;
+package com.nixarsoft.blocktrail.model.result.wallet;
 
 import java.util.List;
 
 public class WalletResult {
-
 	private String wallet_version;
 	private String primary_mnemonic;
 	private String encrypted_primary_seed;

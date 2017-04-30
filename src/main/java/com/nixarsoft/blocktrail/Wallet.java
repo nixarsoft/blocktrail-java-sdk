@@ -12,8 +12,8 @@ import org.apache.log4j.Logger;
 
 import com.google.gson.Gson;
 import com.nixarsoft.blocktrail.model.request.NewAddressRequest;
-import com.nixarsoft.blocktrail.model.result.NewAddressResult;
-import com.nixarsoft.blocktrail.model.result.WalletResult;
+import com.nixarsoft.blocktrail.model.result.address.NewAddressResult;
+import com.nixarsoft.blocktrail.model.result.wallet.WalletResult;
 
 public class Wallet {
 	private static final Logger logger = Logger.getLogger(Wallet.class);
@@ -45,7 +45,7 @@ public class Wallet {
 	}
 
 	public String getNewAddress() {
-		String targetURL = BlocktrailClient.ENDPOINT + "wallet/" + getName() + "/path?api_key=" + client.getApiKey();
+		String targetURL = BlocktrailClient.getEndpoint() + "wallet/" + getName() + "/path?api_key=" + client.getApiKey();
 
 		try {
 			NewAddressRequest newAddressRequest = new NewAddressRequest();
@@ -54,7 +54,7 @@ public class Wallet {
 
 			// Gson gson = new GsonBuilder().disableHtmlEscaping().create();
 			// String requestJsonRaw = gson.toJson(newAddressRequest).replace("/", "\/");
-			// TODO You must handle this problem.
+			// TODO Gson can't create correct json. Think about this.
 			String requestJsonRaw = "{\"path\":\"m\\/0'\\/0\\/*\"}";
 			String requestMd5 = HashGenerator.md5(requestJsonRaw);
 

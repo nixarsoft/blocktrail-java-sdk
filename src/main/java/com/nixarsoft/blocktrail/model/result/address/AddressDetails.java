@@ -1,4 +1,4 @@
-package com.nixarsoft.blocktrail.model;
+package com.nixarsoft.blocktrail.model.result.address;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package com.nixarsoft.blocktrail.model.result;
+package com.nixarsoft.blocktrail.model.result.address;
 
 public class NewAddressResult {
 
