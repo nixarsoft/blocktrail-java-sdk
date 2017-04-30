@@ -26,10 +26,9 @@ public class BlocktrailClient {
 	private String coinType;
 	private static boolean isTestNet;
 
-	public BlocktrailClient(String apiKey, String apiSecret, String coinType, boolean isTestNet) {
+	public BlocktrailClient(String apiKey, String apiSecret, boolean isTestNet) {
 		this.apiKey = apiKey;
 		this.apiSecret = apiSecret;
-		this.coinType = coinType;
 		this.isTestNet = isTestNet;
 	}
 

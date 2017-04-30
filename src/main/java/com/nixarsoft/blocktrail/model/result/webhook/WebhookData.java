@@ -13,7 +13,7 @@ public class WebhookData {
 	private Integer block_height;
 	private Date block_time;
 	private String block_hash;
-	private Integer confirmations;
+	private Byte confirmations;
 	private Boolean is_coinbase;
 	private BigInteger estimated_value;
 	private BigInteger total_input_value;
@@ -86,11 +86,11 @@ public class WebhookData {
 		this.block_hash = block_hash;
 	}
 
-	public Integer getConfirmations() {
+	public Byte getConfirmations() {
 		return confirmations;
 	}
 
-	public void setConfirmations(Integer confirmations) {
+	public void setConfirmations(Byte confirmations) {
 		this.confirmations = confirmations;
 	}
 

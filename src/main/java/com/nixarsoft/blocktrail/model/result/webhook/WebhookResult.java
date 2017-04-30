@@ -45,7 +45,7 @@ public class WebhookResult {
 		this.retry_count = retry_count;
 	}
 
-	public Object getAddresses() {
+	public HashMap<String, BigInteger> getAddresses() {
 		return addresses;
 	}
 
